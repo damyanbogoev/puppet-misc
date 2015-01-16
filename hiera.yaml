@@ -1,0 +1,15 @@
+---
+:backends:
+  - json
+:json:
+  :datadir: /etc/puppet/hieradata/
+:hierarchy:
+  - hostname/%{::hostname}
+  - role_env/%{::telerik_role}_%{::telerik_env}
+  - role/%{::telerik_role}
+  - env/%{::telerik_env}
+  - dc/%{::telerik_site}
+  - os/%{::osfamily}
+  - common
+:merge_behavior: deeper
+
