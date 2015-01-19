@@ -14,6 +14,9 @@ Puppet::Type.newtype(:couchbase_bucket) do
 
   newproperty(:port) do
     desc 'Standard port, exclusive with bucket-port'
+    munge do |value|
+      Integer(value)
+    end
   end
 
   newproperty(:size) do
@@ -32,6 +35,9 @@ Puppet::Type.newtype(:couchbase_bucket) do
 
   newproperty(:replica) do
     desc 'Replication count.'
+    munge do |value|
+      Integer(value)
+    end
   end
 
   newproperty(:bucketpass) do

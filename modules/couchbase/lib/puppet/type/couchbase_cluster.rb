@@ -12,19 +12,14 @@ Puppet::Type.newtype(:couchbase_cluster) do
     desc 'Password to be set for the cluster.'
   end
 
-  newparam(:server_port) do
-    desc 'Couchbase server port'  
-    
-    defaultto 8091
-  end
-
   newparam(:port) do
-    desc 'Port to be set for the cluster(Default: 8091).'
-
-    defaultto 8091
+    desc 'Couchbase server port'  
   end
 
-  newparam(:ram_size) do
+  newproperty(:ram_size) do
     desc 'Cluster RAM size to be set.'
+    munge do |value|
+      Integer(value)
+    end
   end
 end

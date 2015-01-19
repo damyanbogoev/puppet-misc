@@ -1,7 +1,7 @@
 # Class: couchbase::params
 # The Couchbase Module default configuration settings
 class couchbase::params {
-  # install
+  # couchbase::install
   case $::osfamily {
     'Debian': {
       $package_ensure     = 'installed'
@@ -17,8 +17,13 @@ class couchbase::params {
     }
   }
 
-  # service
+  #couchbase::config
+  $cluster_username = 'Administrator'
+  $cluster_password = 'password'
+  $cluster_port     = 8091
+  $cluster_ram_size = 512
+
+  # couchbase::service
   $service_ensure = 'running'
-  $service_manage = true
   $service_name   = 'couchbase-server'
 }
