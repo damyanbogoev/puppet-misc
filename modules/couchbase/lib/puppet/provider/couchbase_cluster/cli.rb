@@ -23,7 +23,7 @@ Puppet::Type.type(:couchbase_cluster).provide(:cli) do
       data = JSON.parse(result.body)
       entry = {:name  => 'default',
           :ensure => :present,
-          :ram_size   => data['storageTotals']['ram']['quotaTotal'],
+          :ram_size   => data['storageTotals']['ram']['quotaTotalPerNode'],
         } 
     end
   

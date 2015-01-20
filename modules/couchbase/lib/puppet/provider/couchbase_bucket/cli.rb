@@ -20,7 +20,7 @@ Puppet::Type.type(:couchbase_bucket).provide(:cli) do
       entry = {:name  => bucket['name'],
         :ensure       => :present,
         :port         => bucket['proxyPort'],
-        :size         => bucket['quota']['ram'],
+        :size         => bucket['quota']['rawRAM'],
         :replica      => bucket['vBucketServerMap']['numReplicas'],
         :bucketpass   => bucket['saslPassword'],
         :enable_flush => process_enable_flush(bucket['controllers']['flush'])

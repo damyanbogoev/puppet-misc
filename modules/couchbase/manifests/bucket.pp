@@ -2,7 +2,7 @@
 class couchbase::bucket {
   couchbase_bucket { 'bucket01':
     port         => 10222,
-    size         => 200,
+    size         => 100,
     type         => 'couchbase',
     replica      => 1,
     enable_flush => 0,

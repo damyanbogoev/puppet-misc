@@ -21,7 +21,7 @@ class couchbase::params {
   $cluster_username = 'Administrator'
   $cluster_password = 'password'
   $cluster_port     = 8091
-  $cluster_ram_size = 1024
+  $cluster_ram_size = 512
 
   # couchbase::service
   $service_ensure = 'running'
