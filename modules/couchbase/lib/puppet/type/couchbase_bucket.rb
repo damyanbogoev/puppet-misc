@@ -17,6 +17,13 @@ Puppet::Type.newtype(:couchbase_bucket) do
     munge do |value|
       Integer(value)
     end
+
+    validate do |value|
+      port = Integer(value)
+      unless (port >= 1024 and port <= 65536)
+        raise ArgumentError, "The port number must be greater than 1023 and less than 65536. Specified value is #{port}"
+      end
+    end
   end
 
   newproperty(:size) do
@@ -33,11 +40,13 @@ Puppet::Type.newtype(:couchbase_bucket) do
     newvalues(:couchbase, :memcached)
   end
 
-  newproperty(:replica) do
+  newparam(:replica) do
     desc 'Replication count.'
     munge do |value|
       Integer(value)
     end
+
+    newvalues(0, 1, 2, 3)
   end
 
   newproperty(:bucketpass) do

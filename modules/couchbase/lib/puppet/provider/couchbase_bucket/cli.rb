@@ -89,14 +89,6 @@ Puppet::Type.type(:couchbase_bucket).provide(:cli) do
     @property_flush[:port] = value
   end
 
-  def replica
-    @property_hash[:replica]
-  end
-
-  def replica=(value)
-    @property_flush[:replica] = value
-  end
-
   def bucketpass
     @property_hash[:bucketpass]
   end

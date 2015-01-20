@@ -1,5 +1,11 @@
 Puppet::Type.newtype(:couchbase_node) do
 
+  desc 'Manage a couchbase node.'
+
+  validate do
+    fail("cli credentials not specified.") if self[:username].nil? || self[:password].nil?
+  end
+
   ensurable
 
   newparam(:name, :namevar => true) do
@@ -11,9 +17,5 @@ Puppet::Type.newtype(:couchbase_node) do
 
   newparam(:password) do
     desc 'Password to be set for the cluster.'
-  end
-
-  newproperty(:node) do
-    desc 'Node to be added or removed from the Couchbase cluster.'  
   end
 end
