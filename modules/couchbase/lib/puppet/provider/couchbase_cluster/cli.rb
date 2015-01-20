@@ -34,8 +34,8 @@ Puppet::Type.type(:couchbase_cluster).provide(:cli) do
 
   def self.prefetch(resources)
     resources.each do |name, resource|
-      buckets = instances(resource)
-      if provider = buckets.find{ |pkg| pkg.name == name }
+      clusters = instances(resource)
+      if provider = clusters.find{ |pkg| pkg.name == name }
         resources[name].provider = provider
       end
     end

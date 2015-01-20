@@ -10,6 +10,12 @@ class couchbase::config {
     username => $cluster_username,
     password => $cluster_password,
     port     => $cluster_port,
-    ram_size => $cluster_ram_size
+    ram_size => $cluster_ram_size,
+  }
+
+  couchbase_node { '192.168.68.31:8091':
+    ensure   => present,
+    username => $cluster_username,
+    password => $cluster_password,
   }
 }
